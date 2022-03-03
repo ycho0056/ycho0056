@@ -1,0 +1,3 @@
+Scholar's Conference,yi@gmail.com,AI,Database introduction,Data Science,jack@gmail.com,zan@gmail.com,tom@gmail.com,alex@gmail.com,06/06/2021,21/06/2021
+mm,yi@gmail.com,ABC,SE,NLP,yi@gmail.com,zan@gmail.com,tom@gmail.com,alex@gmail.com,zihao@gmail.com,20/10/2020,11/11/2020
+HCI,yi@gmail.com,BIC,ML,SE,yi@gmail.com,tom@gmail.com,alex@gmail.com,zihao@gmail.com,jack@gmail.com,1/1/2020,21/05/2021

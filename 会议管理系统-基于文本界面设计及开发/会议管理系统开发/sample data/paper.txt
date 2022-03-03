@@ -1,0 +1,7 @@
+5level.pdf,Scholar's Conference,ABC,CS,BIC,No evaluate,zan@gmail.com
+test1.pdf,Scholar's Conference,ABC,CS,BIC,Accept,zan@gmail.com
+timetable-31108946.pdf,Scholar's Conference,ABC,CS,BIC,Reject,zan@gmail.com
+request_WBS.pdf,Scholar's Conference,CS,BIC,HCI,No evaluate,zan@gmail.com
+W 8_RISK READING.pdf,Scholar's Conference,SE,ML,BIC,No evaluate,zan@gmail.com
+Blank diagram (1).pdf,Scholar's Conference,CS,BIC,HCI,Reject,zan@gmail.com
+assignment-cover-individual (1).pdf,Scholar's Conference,BIC,HCI,NLP,No evaluate,zan@gmail.com
