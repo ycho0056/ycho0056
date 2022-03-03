@@ -1,0 +1,96 @@
+﻿@model Assignment.Models.Appointment
+@{
+    ViewBag.Title = "Calendar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Calendar</h2>
+
+<div id="calendar"></div>
+
+@section Scripts {
+    <link href="~/Content/fullcalendar.min.css" rel="stylesheet" />
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/fullcalendar.min.js"></script>
+    <script>
+        var events = [
+            {
+                title: 'Business Lunch',
+                start: '2021-10-03T13:00:00',
+                constraint: 'businessHours'
+            },
+            {
+                title: 'Meeting',
+                start: '2021-10-13T11:00:00',
+                constraint: 'availableForMeeting', // defined below
+                color: '#257e4a'
+            },
+            {
+                title: 'Conference',
+                start: '2021-10-18',
+                end: '2021-10-20'
+            },
+            {
+                title: 'Party',
+                start: '2021-10-29T20:00:00'
+            },
+
+            // areas where "Meeting" must be dropped
+            {
+                groupId: 'availableForMeeting',
+                start: '2021-10-11T10:00:00',
+                end: '2021-10-11T16:00:00',
+                rendering: 'background'
+            },
+            {
+                groupId: 'availableForMeeting',
+                start: '2021-10-13T10:00:00',
+                end: '2021-10-13T16:00:00',
+                rendering: 'background'
+            },
+
+            // red areas where no events can be dropped
+            {
+                start: '2021-10-24',
+                end: '2021-10-28',
+                overlap: false,
+                rendering: 'background',
+                color: '#ff9f89'
+            },
+            {
+                start: '2021-10-06',
+                end: '2021-10-08',
+                overlap: false,
+                rendering: 'background',
+                color: '#ff9f89'
+            }
+        ];
+
+        var event2 = {
+            "title": 'Example',
+            "start": '@ViewBag.eventDate'
+        };
+        console.log("res2", event2.start);
+        events.push(event2);
+        $("#calendar").fullCalendar({
+            locale: 'au',
+            plugins: ['interaction', 'dayGrid', 'timeGrid'],
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek'
+            },
+            defaultDate: '2021-10-12',
+            businessHours: true, // display business hours
+            editable: true,// can be false to close edit function
+            events: events,
+            dayClick: function (date, allDay, jsEvent, view) {
+                var d = new Date(date);
+                var m = moment(d).format("YYYY-MM-DD");
+                m = encodeURIComponent(m);
+                var uri = "/Home/Calendar?date=" + m;
+                $(location).attr('href', uri);
+            }
+        });
+    </script>
+}

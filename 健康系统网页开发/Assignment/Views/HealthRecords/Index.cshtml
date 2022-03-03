@@ -1,0 +1,123 @@
+﻿@model IEnumerable<Assignment.Models.HealthRecord>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Health Record Homepage</h2>
+
+<p>
+    @Html.ActionLink("Create New Record", "Create")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Mood)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BloodPresure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HeartRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pulse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mood)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BloodPresure)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HeartRate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pulse)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+                </td>
+                <td>
+                    @Html.ActionLink("Modify", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (!ViewContext.HttpContext.User.IsInRole("admin"))
+{
+    <body>
+        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    </body>
+
+    <script>
+	window.onload = function () {
+
+	var chart = new CanvasJS.Chart("chartContainer", {
+		animationEnabled: true,
+		title: {
+			text: "Daily Record"
+		},
+		toolTip: {
+			shared: true
+		},
+		data: [{
+			type: "line",
+			name: "BloodPersure",
+			showInLegend: true,
+			dataPoints: @Html.Raw(ViewBag.DataPoints1)
+		}, {
+			type: "line",
+			name: "HeartRate",
+			showInLegend: true,
+			dataPoints: @Html.Raw(ViewBag.DataPoints2)
+		}, {
+			type: "line",
+			name: "Pulse",
+			showInLegend: true,
+			dataPoints: @Html.Raw(ViewBag.DataPoints3)
+		}]
+	});
+	chart.render();
+
+	}
+    </script>
+}
+
+
+<p>
+    @Html.ActionLink("Send Records To Email", "Send_Email")
+</p>
+@section Scripts {
+    <link href="~/Content/DataTables/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.js")
+    @Scripts.Render("~/Scripts/DataTables/dataTables.bootstrap.js")
+    <script>
+        $(document).ready(function () {
+            $('.table').DataTable();
+        });
+    </script>
+}

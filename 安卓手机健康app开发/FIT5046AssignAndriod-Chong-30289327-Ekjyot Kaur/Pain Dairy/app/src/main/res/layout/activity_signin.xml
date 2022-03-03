@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Hint"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:paddingTop="10dp"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="204dp"
+        android:layout_height="166dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="75dp"
+        android:layout_marginRight="103dp"
+        android:layout_marginBottom="20dp"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginRight="84dp"
+        android:gravity="center"
+        android:text="Welcome to Pain Diary application\n   ----------log in------------"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/purple_500"
+        android:textSize="18sp"
+        tools:fontFamily="casual" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_marginLeft="100dp"
+        android:text="Account:" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="204dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/text1"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="111dp"
+        android:background="@color/white"
+        android:hint="Email"
+        android:textSize="14sp"
+        android:padding="10dp"/>
+
+    <ImageView
+        android:layout_width="34dp"
+        android:layout_height="25dp"
+        android:layout_below="@+id/text1"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="318dp"
+        android:layout_marginRight="318dp"
+        app:srcCompat="@drawable/account" />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/email"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="100dp"
+        android:text="Password:" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="204dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/text2"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="111dp"
+        android:background="@color/white"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="21dp"
+        android:layout_below="@+id/text1"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="87dp"
+        android:layout_marginEnd="324dp"
+        android:layout_marginRight="324dp"
+        app:srcCompat="@drawable/password" />
+
+    <CheckBox
+        android:id="@+id/Checkbox"
+        android:layout_width="202dp"
+        android:layout_height="25dp"
+        android:layout_below="@+id/password"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="111dp"
+        android:text="Click to show password"
+        android:textSize="14sp" />
+    <CheckBox
+        android:id="@+id/rememberUsername"
+        android:layout_width="199dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/Checkbox"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="111dp"
+        android:text="Tick here to remember user name"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/signin"
+        android:layout_width="204dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/rememberUsername"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="110dp"
+        android:text="Signin"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="204dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/signin"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginRight="106dp"
+        android:text="Register"
+        android:textSize="14sp" />
+
+
+</RelativeLayout>

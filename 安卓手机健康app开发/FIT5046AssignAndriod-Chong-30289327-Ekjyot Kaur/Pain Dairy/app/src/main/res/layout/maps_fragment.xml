@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Hint"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="204dp"
+        android:layout_height="166dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center"
+        android:layout_marginLeft="75dp"
+        android:layout_marginRight="103dp"
+        android:layout_marginBottom="20dp"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_below="@+id/imageView"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="26dp"
+        android:text="Enter your location:"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/location_enter"
+        android:layout_width="159dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/imageView"
+        android:layout_marginLeft="22dp"
+        android:layout_toRightOf="@+id/location"
+        android:hint="Full address" />
+
+    <Button
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/location"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="138dp"
+        android:layout_marginRight="138dp"
+        android:text="Show in map" />
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map"
+        android:layout_width="400dp"
+        android:layout_height="350dp"
+        android:layout_below="@+id/search"
+        android:layout_marginTop="75dp"
+        android:layout_marginBottom="10dp" />
+
+</RelativeLayout>

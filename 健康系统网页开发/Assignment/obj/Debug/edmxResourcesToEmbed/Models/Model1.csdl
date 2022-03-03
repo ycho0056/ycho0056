@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="HealthRecords" Relationship="Model.AspNetUserHealthRecord" FromRole="AspNetUser" ToRole="HealthRecord" />
+    <NavigationProperty Name="Appointments" Relationship="Model.AspNetUserAppointment" FromRole="AspNetUser" ToRole="Appointment" />
+  </EntityType>
+  <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="HealthRecords" EntityType="Model.HealthRecord" />
+    <EntitySet Name="Appointments" EntityType="Model.Appointment" />
+    <EntitySet Name="Treatments" EntityType="Model.Treatment" />
+    <AssociationSet Name="TreatmentAppointment" Association="Model.TreatmentAppointment">
+      <End Role="Treatment" EntitySet="Treatments" />
+      <End Role="Appointment" EntitySet="Appointments" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserHealthRecord" Association="Model.AspNetUserHealthRecord">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="HealthRecord" EntitySet="HealthRecords" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserAppointment" Association="Model.AspNetUserAppointment">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="Appointment" EntitySet="Appointments" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="HealthRecord">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Mood" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="BloodPresure" Type="Int32" Nullable="false" />
+    <Property Name="HeartRate" Type="Int32" Nullable="false" />
+    <Property Name="Pulse" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="AspNetUser" Relationship="Model.AspNetUserHealthRecord" FromRole="HealthRecord" ToRole="AspNetUser" />
+    <Property Name="AspNetUserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Appointment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" />
+    <Property Name="Evaluation" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Treatment" Relationship="Model.TreatmentAppointment" FromRole="Appointment" ToRole="Treatment" />
+    <Property Name="TreatmentId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Model.AspNetUserAppointment" FromRole="Appointment" ToRole="AspNetUser" />
+    <Property Name="AspNetUserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Treatment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Location" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Rating" Type="Double" Nullable="true" />
+    <Property Name="Phone" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Appointments" Relationship="Model.TreatmentAppointment" FromRole="Treatment" ToRole="Appointment" />
+  </EntityType>
+  <Association Name="TreatmentAppointment">
+    <End Type="Model.Treatment" Role="Treatment" Multiplicity="1" />
+    <End Type="Model.Appointment" Role="Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Treatment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="TreatmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserHealthRecord">
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="Model.HealthRecord" Role="HealthRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HealthRecord">
+        <PropertyRef Name="AspNetUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserAppointment">
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="Model.Appointment" Role="Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="AspNetUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

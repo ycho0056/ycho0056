@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_home_fragment">
+
+    <fragment
+        android:id="@+id/nav_home_fragment"
+        android:name="com.example.assignment.fragment.HomeFragment"
+        android:label="Home Page" />
+    <fragment
+        android:id="@+id/nav_daily_record_fragment"
+        android:name="com.example.assignment.fragment.DailyRecordFragment"
+        android:label="Daily Record Page" />
+    <fragment
+        android:id="@+id/nav_maps_fragment"
+        android:name="com.example.assignment.fragment.MapsFragment"
+        android:label="Maps Page" />
+    <fragment
+        android:id="@+id/nav_pain_data_fragment"
+        android:name="com.example.assignment.fragment.PainDataFragment"
+        android:label="Pain Data Page" />
+    <fragment
+        android:id="@+id/nav_reports_fragment"
+        android:name="com.example.assignment.fragment.ReportsFragment"
+        android:label="Reports Page" />
+</navigation>

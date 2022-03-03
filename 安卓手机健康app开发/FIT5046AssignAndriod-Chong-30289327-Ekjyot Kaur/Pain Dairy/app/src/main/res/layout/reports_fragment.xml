@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Hint"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="204dp"
+            android:layout_height="166dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="75dp"
+            android:layout_marginRight="103dp"
+            android:layout_marginBottom="20dp"
+            app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/pain_location_chart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:text="Pain Location Chart:"/>
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:layout_height="350dp"
+        android:layout_width="400dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/barChart"
+        android:layout_below="@+id/pain_location_chart"/>
+
+    <TextView
+        android:id="@+id/step_taken_chart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/barChart"
+        android:text="Step taken Chart:"/>
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:layout_height="350dp"
+        android:layout_width="400dp"
+        android:layout_margin="10dp"
+        android:id="@+id/barChart2"
+        android:layout_below="@+id/step_taken_chart"/>
+
+    <TextView
+        android:id="@+id/start_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/barChart2"
+        android:text="Start Date:" />
+
+    <TextView
+        android:id="@+id/start_date_select"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/start_date"
+        android:layout_below="@+id/barChart2"
+        android:layout_marginLeft="20dp"
+        android:hint="Enter start date"/>
+
+    <TextView
+        android:id="@+id/end_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/start_date"
+        android:text="End date:" />
+
+    <TextView
+        android:id="@+id/end_date_select"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/start_date"
+        android:layout_below="@+id/start_date_select"
+        android:layout_marginLeft="20dp"
+        android:hint="Enter end date"/>
+
+        <TextView
+            android:id="@+id/weather_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/end_date"
+            android:hint="Select weather type:" />
+
+        <Spinner
+        android:id="@+id/weather_type_Spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Pain location:"
+        android:layout_below="@+id/end_date"
+        android:layout_toRightOf="@+id/weather_type"
+
+        />
+
+        <Button
+            android:layout_width="154dp"
+            android:layout_height="55dp"
+            android:layout_below="@+id/weather_type_Spinner"
+            android:text="Show pain weather line chart"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/show_chart"/>
+        <Button
+            android:layout_width="154dp"
+            android:layout_height="55dp"
+            android:id="@+id/clean_select"
+            android:text="Clean select"
+            android:layout_below="@+id/weather_type_Spinner"
+            android:layout_toRightOf="@+id/show_chart"
+            android:layout_marginLeft="20dp"/>
+        <com.github.mikephil.charting.charts.LineChart
+            android:layout_height="350dp"
+            android:layout_width="400dp"
+            android:layout_margin="10dp"
+            android:id="@+id/LineChart1"
+            android:layout_below="@+id/clean_select"/>
+        <Button
+            android:layout_width="154dp"
+            android:layout_height="55dp"
+            android:layout_below="@+id/LineChart1"
+            android:text="Correlation Test"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/correlation_test"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/value"
+            android:layout_below="@+id/correlation_test"/>
+
+    </RelativeLayout>
+</ScrollView>

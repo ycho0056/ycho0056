@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Hint"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="204dp"
+        android:layout_height="166dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center"
+        android:layout_marginLeft="75dp"
+        android:layout_marginRight="103dp"
+        android:layout_marginBottom="20dp"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/pain_intensity_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:layout_below="@+id/imageView"
+        android:layout_marginBottom="5dp"
+        android:text="Pain_intensity_level："
+        android:textSize="15dp" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/painLevelSilder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginBottom="5dp"
+        android:valueFrom="0"
+        android:valueTo="10"
+        android:stepSize="1"
+        android:layout_below="@+id/pain_intensity_level"
+        />
+    <TextView
+        android:id="@+id/pain_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pain location:"
+        android:textSize="15dp"
+        android:padding="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/painLevelSilder"/>
+
+    <Spinner
+        android:id="@+id/painLocationSpinner"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:padding="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="50dp"
+        android:text="Pain location:"
+        android:layout_below="@+id/painLevelSilder"
+        android:layout_toRightOf="@+id/pain_location"
+        />
+
+    <TextView
+        android:id="@+id/mood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mood:"
+        android:textSize="15dp"
+        android:padding="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@+id/painLocationSpinner"/>
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/mood">
+        <RadioButton
+            android:id="@+id/very_low"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="10dp"
+            android:labelFor="@id/very_low"
+            android:button="@drawable/ic_very_low"
+            />
+
+        <RadioButton
+            android:id="@+id/low"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="30dp"
+            android:button="@drawable/ic_low"
+            />
+
+        <RadioButton
+            android:id="@+id/average"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:button="@drawable/ic_average" />
+        <RadioButton
+            android:id="@+id/good"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="30dp"
+            android:button="@drawable/ic_happy"/>
+
+        <RadioButton
+            android:id="@+id/very_good"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="30dp"
+            android:button="@drawable/ic_very_happy"/>
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/radio_group"
+        android:id="@+id/label"
+        android:text="   Very Low          Low            Average      Very Good         Good"/>
+
+    <TextView
+        android:id="@+id/step_goal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Step goal:"
+        android:textSize="15dp"
+        android:padding="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/label"/>
+
+    <EditText
+        android:id="@+id/step_goal_ed"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:text="10000"
+        android:layout_toRightOf="@+id/step_goal"
+        android:layout_marginLeft="150dp"
+        android:layout_below="@+id/label"/>
+
+    <TextView
+        android:id="@+id/step_taken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:padding="10dp"
+        android:text="Step taken:"
+        android:textSize="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/step_goal"/>
+
+    <EditText
+        android:id="@+id/step_taken_ed"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="0"
+        android:layout_toRightOf="@+id/step_taken"
+        android:layout_marginLeft="145dp"
+        android:layout_below="@+id/step_goal"/>
+
+    <Button
+        android:id="@+id/edit"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="40dp"
+        android:text="Edit"
+        android:textSize="14sp"
+        android:layout_below="@+id/step_taken"/>
+    <Button
+        android:id="@+id/save"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="50dp"
+        android:text="Save"
+        android:textSize="14sp"
+        android:layout_below="@+id/step_taken"
+        android:layout_toRightOf="@+id/edit"/>
+
+    <Button
+        android:id="@+id/time_picker"
+        android:layout_width="98dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Show Time Picker"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="161dp" />
+
+
+
+
+</RelativeLayout>

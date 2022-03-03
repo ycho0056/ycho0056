@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Hint"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:paddingTop="10dp"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="204dp"
+        android:layout_height="166dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center"
+        android:layout_marginLeft="75dp"
+        android:layout_marginRight="103dp"
+        android:layout_marginBottom="20dp"
+        app:srcCompat="@drawable/logo" />
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_below="@+id/imageView"
+        />
+    <TextView
+        android:id="@+id/weather"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_below="@+id/location"
+        android:layout_marginTop="60dp"
+        />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_below="@+id/weather"
+        android:layout_marginTop="60dp"
+        />
+
+    <TextView
+        android:id="@+id/temp"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date"
+        android:layout_marginTop="60dp"
+        android:textSize="20sp"/>
+    <TextView
+        android:id="@+id/humidity"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/temp"
+        android:layout_marginTop="60dp"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/pressure"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/humidity"
+        android:layout_marginTop="60dp"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/log_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Log out"
+        android:textSize="14sp"/>
+
+</RelativeLayout>
